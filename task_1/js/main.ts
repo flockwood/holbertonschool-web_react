@@ -13,7 +13,17 @@ interface Teacher {
     numberOfReports: number;
   }
   
-  // Create teacher object 
+  // Define the interface for the printTeacher function
+  interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+  }
+  
+  // Implement the printTeacher function
+  const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+    return `${firstName.charAt(0)}. ${lastName}`;
+  };
+  
+  // Create teacher object
   const teacher3: Teacher = {
     firstName: 'John',
     fullTimeEmployee: false,
@@ -24,7 +34,7 @@ interface Teacher {
   
   console.log(teacher3);
   
-  // Create director object 
+  // Create director object
   const director1: Directors = {
     firstName: 'John',
     lastName: 'Doe',
@@ -34,3 +44,6 @@ interface Teacher {
   };
   
   console.log(director1);
+  
+  // Test the printTeacher function
+  console.log(printTeacher("John", "Doe"));
