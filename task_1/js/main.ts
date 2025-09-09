@@ -18,6 +18,36 @@ interface Teacher {
     (firstName: string, lastName: string): string;
   }
   
+  // Define the interface for the StudentClass constructor
+  interface StudentConstructor {
+    new (firstName: string, lastName: string): StudentClassInterface;
+  }
+  
+  // Define the interface for the StudentClass
+  interface StudentClassInterface {
+    workOnHomework(): string;
+    displayName(): string;
+  }
+  
+  // Implement the StudentClass
+  class StudentClass implements StudentClassInterface {
+    firstName: string;
+    lastName: string;
+  
+    constructor(firstName: string, lastName: string) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+  
+    workOnHomework(): string {
+      return "Currently working";
+    }
+  
+    displayName(): string {
+      return this.firstName;
+    }
+  }
+  
   // Implement the printTeacher function
   const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
     return `${firstName.charAt(0)}. ${lastName}`;
@@ -47,3 +77,8 @@ interface Teacher {
   
   // Test the printTeacher function
   console.log(printTeacher("John", "Doe"));
+  
+  // Test the StudentClass
+  const student1: StudentClassInterface = new StudentClass("Jane", "Smith");
+  console.log(student1.displayName());
+  console.log(student1.workOnHomework());
