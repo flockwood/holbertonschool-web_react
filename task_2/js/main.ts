@@ -64,12 +64,28 @@ function executeWork(employee: Director | Teacher): string {
     }
 }
 
+// Define a String literal type named Subjects
+type Subjects = 'Math' | 'History';
+
+// write a function named teachClass
+function teachClass(todayClass: Subjects): string {
+    if (todayClass == 'Math') {
+        return 'Teaching Math';
+    } else {
+        return 'Teaching History';
+    }
+}
+
 // Test the createEmployee function
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
 
-// Test the new functions
+// Test the executeWork functions
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+
+// Test the teacherClass function
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
 
